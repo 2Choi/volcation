@@ -1,0 +1,100 @@
+header
+{
+	position: fixed;
+	width: 100%;
+	height: 50px;
+	top:0;
+	background-color: black;
+	color:white;
+}
+footer
+{
+	position: fixed;
+	bottom:0;
+	width: 100%;
+	height: 30px;
+	background-color: blue;
+}
+section.first
+{
+	margin-top:50px;
+}
+h1
+{
+	font-size: 2em;
+}
+body
+{
+	margin:0;
+}
+.container
+{
+	margin: 0 auto;
+	width: 80%;
+	text-align: center;
+}
+.columns
+{
+	margin: 1%;
+	display: inline-block;
+}
+.four.columns
+{
+	width: 30%;
+}
+.six.columns
+{
+	width: 45%;
+}
+@media (max-width: 760px){
+	.four.columns {
+		width: 100%;
+		margin:0;
+	}
+}
+section
+{
+	min-height: 150px;
+	padding: 15px 0;
+}
+img.circle {
+	border-radius: 50%;
+}
+.six img {
+	max-width: 250px;
+}
+.six img {
+	border: 7px solid #ddd;
+	width: 80%;
+}
+.four img {
+	border: 7px solid #ddf;
+	width: 90%;
+}
+section.last {
+	margin-bottom: 40px;
+}
+header ul {
+	list-style: none;
+	-webkit-padding-start: 0px;
+}
+header ul li {
+	margin-left: 25px;
+}
+.top-menu {
+	float: left;
+	display: flex;
+	margin-left: 10px;
+}
+.right {
+	float: right;
+}
+#bd-1 {
+	display: inline-block;
+	margin: 0 auto;
+}
+td
+{
+	margin:50px;
+	padding: 20px 50px;
+}

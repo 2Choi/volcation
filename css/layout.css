@@ -1,0 +1,114 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+#top {
+	max-width:1200px;
+	margin-top: 30px;
+	margin-right: 10%;
+	margin-left: 10%;
+}
+#top > div {
+	float: left;
+
+}
+#top #top_logo {
+	width:20%;
+} 
+#top #top_logo img {
+	max-width: 100%;
+}
+#top #top_menu {
+	width:80%;
+}
+#top_menu ul {
+	width:100%;
+	position:relative;
+	float:left;
+	width:100%;
+	padding:0px;
+	margin:0px;
+}
+#top_menu ul {
+	list-style:none;
+}
+#top_menu > ul > li { 
+	width:calc( 20% - 2px ); 
+}
+#top_menu li {
+	position:relative;
+	float:left;
+	padding:0;
+	margin:0;
+	text-align:center;
+	width:100%;
+	background:white;
+	opacity: 0.5;
+	border:1px solid white;
+}
+#top_menu li a {
+	text-decoration:none;
+	color:black;
+	font-weight:bold;
+	line-height:200%;
+}
+#top_menu ul ul {
+	display:none;
+}
+#top_menu ul ul ul{
+	position:absolute;
+	top:0;
+	left:100%;
+}
+#content{
+		position: relative;
+    	top:150px; /*위치를 대칭적으로 조절하는 방법은?*/
+		max-width:1200px;
+		border:1px solid gray;
+		margin-right: 10%;
+		margin-left: 10%;
+}
+#d_set1 {
+	max-width: 1200px;
+	height: 300px;
+}
+#sp_1 {
+	width:25%;
+	float: left;
+}
+#sp_2 {
+	width:25%;
+	float: left;
+}
+#sp_3 {
+	width:25%;
+	float: left;
+}
+#sp_4 {
+	width:25%;
+	float: left;
+}
+#d_set2 {
+	max-width: 1200px;
+	height: 300px;
+}
+#sp_5 {
+	width:25%;
+	float: left;
+}
+#sp_6 {
+	width:25%;
+	float: left;
+}
+#sp_7 {
+	width:25%;
+	float: left;
+}
+#sp_8 {
+	width:25%;
+	float: left;
+}
+#content img {
+	width: 200px;
+	height: 200px;
+}

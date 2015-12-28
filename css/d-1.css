@@ -1,0 +1,130 @@
+#logo img {
+	width: 100%;
+	max-width: 300px;
+}
+.product {
+
+	border-radius: 10px;
+	background: #d3d3d3;
+	padding: 20%;
+	margin:10px 0;
+}
+.product .product-img {
+	width: 100%;
+}
+.product .product-name, .product .product-price {
+	text-align: center;
+	padding-top: 30px;
+}
+#footer-img {
+	max-width: 80%;
+}
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width:100%;
+	line-height:150%;
+}
+#menu > ul > li {
+	display: inline;
+	float: left;
+}
+#menu li {
+	margin: 0;
+	padding: 0;
+	text-align:center;
+}
+#menu ul  li {
+	width:calc( 33% - 2px );
+}
+#menu ul li ul {
+	display: none;
+	width:calc( 100% - 34px );
+}
+#menu li a {
+	text-decoration:none;
+	color:black;
+	font-weight:bold;
+}
+#menu ul ul {
+	position:absolute;
+}
+#menu li {
+	background:gray;
+	border:1px solid white;
+}
+#somenu {
+	opacity: 0.3;
+}
+#ftup ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#ftup > ul > li {
+	display: inline;
+	float: left;
+	width:25%;
+}
+#ftup li a {
+	text-decoration:none;
+	color:black;
+	font-weight:bold;
+}
+.row.sliderwrap {
+	width:400vw;
+}
+#slider li {
+	display: inline;
+	float: left;
+}
+.row.sliderwrap ul img {
+	width:100vw;
+}
+#slider {
+	margin: 0;
+	padding: 0;
+	position:relative;
+}
+#slup {
+	width: 100vw;
+	overflow: hidden;
+	position: relative;
+}
+#pn {
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+#next {
+	float: right;
+}
+#next, #prev {
+	cursor: pointer;
+	opacity: 0.5;
+}
+.dots {
+	display: inline-block; 
+	width: 20px;
+	height: 20px;
+	background-color: gray;
+	border: 3px solid white;
+	border-radius: 50%;
+}
+#slide-nav {
+	width: 100%;
+	position: absolute;
+	bottom: 10px;
+	text-align: center;
+}
+#dot1 {
+	background-color: white;
+}
+#pre-ft {
+	width: 100%;
+	text-align: center;
+}

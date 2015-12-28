@@ -1,0 +1,53 @@
+#logo img {
+	width: 100%;
+	max-width: 300px;
+}
+.product {
+	border-radius: 10px;
+	background: #d3d3d3;
+	padding: 20%;
+	margin:10px 0;
+}
+.product .product-img {
+	width: 100%;
+}
+.product .product-name, .product .product-price {
+	text-align: center;
+	padding-top: 30px;
+}
+#footer-img {
+	max-width: 100%;
+}
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#menu > ul > li {
+	width:33%;
+	display: inline;
+	float: left;
+}
+#menu ul li ul {
+	display: none;
+}
+#menu li a {
+	text-decoration:none;
+	color:black;
+	font-weight:bold;
+	line-height:200%;
+}
+#menu ul ul {
+	position:absolute;
+}
+#menu > ul > li {
+	background:gray;
+	opacity: 0.3;
+	border:1px solid white;
+}
+#slider {
+	white-space: nowrap;
+}
+#slider img{
+	float: left;
+}

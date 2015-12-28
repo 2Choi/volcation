@@ -1,0 +1,42 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: url("../img/back/background1.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+}
+#login {
+	height:100vh;
+	text-align: center;
+	color: white;
+}
+#login form {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+#idvar input {
+	background-color: rgba(50, 50, 50, 0.1); 
+}
+/* 아이디 두개를 같이 적용시키려는데
+ex) #idvar #pwvar input{} 한줄로 하려는데 왜 적용이 안될까요?^^
+서브밋의 스타일을 단독으로 주고 싶어서 다시 바만 스타일 적용 시켰습니다아~*/
+#pwvar input {
+	background-color: rgba(50, 50, 50, 0.1); 
+}
+#submit {
+	
+}
+#black {
+	width: 100%;
+	opacity: 0.8;
+	position:absolute;
+	height:100%;
+	text-align: center;
+	background-color: black;
+}
