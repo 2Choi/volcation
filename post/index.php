@@ -1,4 +1,4 @@
-<?php require('../config/config.php'); ?>
+<?php require_once('../config/config.php'); ?>
 <!DOCTYPE html>
 <html lang="ko-kr">
 <head>
@@ -6,22 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../normalize.css" type="text/css">
 	<link rel="stylesheet" href="../css/page-1.css" type="text/css">
-	<style>
-	#bd-1 {
-		display: inline-block;
-		margin: 0 auto;
-	}
-	td
-	{
-		margin:50px;
-	}
-	.container
-	{
-		width:80%;
-		margin:0 auto;
-
-	}
-	</style>
 </head>
 <body>
 
@@ -33,8 +17,13 @@
 				<li>볼케이션</li>
 			</ul>
 			<ul class="top-menu right">
-				<li>로그인</li>
-				<li>로그아웃</li>
+				<?php
+				    if( $user->is_logged_in() ) {
+				    	echo "<li>로그아웃</li>";
+				    } else {
+				    	echo "<li>로그인</li>";
+				    }
+				?>
 				<li>마일리지</li>
 			</ul>
 		</div>
@@ -58,7 +47,7 @@
 
 				$result = $conn->query($sql);
 
-				while($row = $result->fetch_assoc()) {
+				while($row = $result->fetch()) {
 
 					echo "<tr>";
 					echo "<td>".$row["PostNum"]."</td>";
@@ -88,8 +77,6 @@
 					</script>
 					";
 				}
-
-				$conn->close();
 				?>
 			</table>
 		</div>

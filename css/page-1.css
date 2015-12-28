@@ -98,3 +98,20 @@ td
 	margin:50px;
 	padding: 20px 50px;
 }
+
+.content-top{
+	width: 100%;
+}
+.content-top > div {
+	display: inline-block;
+	width: 33%;
+}
+.content-wrap {
+	width: 100%;
+}
+.content {
+	width: 100%;
+}
+.reply-top {
+	display: inline-block;
+}

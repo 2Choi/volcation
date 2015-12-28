@@ -47,7 +47,7 @@
 	$sql="SELECT * FROM mainboard WHERE PostNum=".$_GET["id"].";";
 
 	$result = $conn->query($sql);
-	$row = $result->fetch_assoc();
+	$row = $result->fetch();
 	?>
 	<div class="container">
 		<section class="first">
@@ -75,7 +75,7 @@
 
 		$result = $conn->query($sql);
 
-		while($row = $result->fetch_assoc()) {
+		while($row = $result->fetch()) {
 			?>
 			<div>
 				<div class="reply-top">
