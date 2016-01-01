@@ -27,7 +27,6 @@ if( $user->is_logged_in() ){ header('Location: /2choi/post/index.php');die(); }
 
 			//logged in return to index page
 			header('Location: index.php');
-			die();
 			exit;
 		
 

@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 //database credentials
 define('DBHOST','localhost');
@@ -10,7 +11,7 @@ try {
   $conn = new PDO("mysql:host=".DBHOST.";port=3306;dbname=".DBNAME, DBUSER, DBPASS);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-  echo 'Connection failed: ' . $e->getMessage();
+  //echo 'Connection failed: ' . $e->getMessage();
 }
 
 //load classes as needed
