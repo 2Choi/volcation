@@ -1,3 +1,8 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
 body {
 	margin: 0;
 	padding: 0;
@@ -15,25 +20,14 @@ body {
 }
 #main {
 	top: 50%;
-    position: absolute;
-    DISPLAY: INLINE-BLOCK;
-    margin: 0 AUTO;
+	min-width: 200px;
+  position: absolute;
+  DISPLAY: INLINE-BLOCK;
+  margin: 0 AUTO;
 
-    -webkit-transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
 	-ms-transform: translateY(-50%) translateX(-50%);
 	transform: translateY(-50%) translateX(-50%);
-}
-#idvar input {
-	background-color: rgba(50, 50, 50, 0.1); 
-}
-/* 아이디 두개를 같이 적용시키려는데
-ex) #idvar #pwvar input{} 한줄로 하려는데 왜 적용이 안될까요?^^
-서브밋의 스타일을 단독으로 주고 싶어서 다시 바만 스타일 적용 시켰습니다아~*/
-#pwvar input {
-	background-color: rgba(50, 50, 50, 0.1); 
-}
-#submit {
-	
 }
 #black {
 	width: 100%;
@@ -42,4 +36,22 @@ ex) #idvar #pwvar input{} 한줄로 하려는데 왜 적용이 안될까요?^^
 	height:100%;
 	text-align: center;
 	background-color: black;
+}
+form > div {
+	margin-bottom: 20px;
+}
+form input , button[name="signup"] {
+	color: white;
+	width: 100%;
+	height: 32px;
+	font-size: 12px;
+	text-align: center;
+	border-radius: 5px;
+	background-color: rgba(50, 50, 50, 0.1);
+}
+
+input[type="submit"] , button[name="signup"] {
+	padding: 0;
+	margin: 5px 0;
+	background-color: rgba(255,255,255,0.3);
 }

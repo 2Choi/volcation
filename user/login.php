@@ -7,7 +7,7 @@ if( $user->is_logged_in() ){
 				<script>
 				location.replace(\"../post/index.php\");
 				</script>";
-} 
+}
 ?>
 <!DOCTYPE html>
 <html lang="ko-kr">
@@ -32,8 +32,8 @@ if( $user->is_logged_in() ){
 
 		$username = trim($_POST['username']);
 		$password = trim($_POST['password']);
-		
-		if($user->login($username,$password)){ 
+
+		if($user->login($username,$password)){
 
 			//logged in return to index page
 			echo "
@@ -41,7 +41,7 @@ if( $user->is_logged_in() ){
 				location.replace(\"../post/index.php\");
 				</script>";
 			exit;
-		
+
 		} else {
 			$message = '<p class="error">Wrong username or password</p>';
 		}
@@ -49,26 +49,26 @@ if( $user->is_logged_in() ){
 	}//end if submit
 
 	if(isset($message)){
-	 echo $message; 
+	 echo $message;
 	}
 	?>
 	<div id="login">
 		<div id="black"></div>
 		<div id="main">
 			<form action="" method="post">
-				<div id="id">ID</div>
-				<div id="idvar"><input type="text" name="username" placeholder="아이디를 입력하시오"></div>
-				<div id="pw">PW</div>
-				<div id="pwvar"><input type="password" name="password" placeholder="비밀번호를 입력하시오"></div>
-
+				<div>
+					<p>ID</p>
+					<input type="text" name="username" placeholder="아이디를 입력하시오">
+					<p>PW</p>
+					<input type="password" name="password" placeholder="비밀번호를 입력하시오">
+				</div>
 				<input type="submit" value="로그인" name="submit">
 			</form>
 			<a href="./signup.php"><button value="signup" name="signup">회원가입</button></a>
 		</div>
 	</div>
-	<a href="./signup.php">회원가입</a>
 
-			
-			
+
+
 </body>
 </html>
