@@ -13,12 +13,15 @@ body {
 	text-align: center;
 	color: white;
 }
-#login form {
-	position: relative;
+#main {
 	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
+    position: absolute;
+    DISPLAY: INLINE-BLOCK;
+    margin: 0 AUTO;
+
+    -webkit-transform: translateY(-50%) translateX(-50%);
+	-ms-transform: translateY(-50%) translateX(-50%);
+	transform: translateY(-50%) translateX(-50%);
 }
 #idvar input {
 	background-color: rgba(50, 50, 50, 0.1); 

@@ -2,20 +2,30 @@
 //include config
 require_once('../config/config.php');
 //check if already logged in
-if( $user->is_logged_in() ){ header('Location: /2choi/post/index.php');die(); } 
+if( $user->is_logged_in() ){
+	echo "
+				<script>
+				location.replace(\"../post/index.php\");
+				</script>";
+} 
 ?>
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko-kr">
 <head>
-  <meta charset="utf-8">
-  <title>Admin Login</title>
-  <link rel="stylesheet" href="../style/normalize.css">
-  <link rel="stylesheet" href="../style/main.css">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+	<script>
+	$(document).ready(function(){
+		$("#black").animate({
+			opacity:0
+		},7000);
+	});
+	</script>
+
 </head>
 <body>
-
-<div id="login">
-
 	<?php
 	//process login form if submitted
 	if(isset($_POST['submit'])){
@@ -26,10 +36,12 @@ if( $user->is_logged_in() ){ header('Location: /2choi/post/index.php');die(); }
 		if($user->login($username,$password)){ 
 
 			//logged in return to index page
-			header('Location: index.php');
+			echo "
+				<script>
+				location.replace(\"../post/index.php\");
+				</script>";
 			exit;
 		
-
 		} else {
 			$message = '<p class="error">Wrong username or password</p>';
 		}
@@ -40,13 +52,23 @@ if( $user->is_logged_in() ){ header('Location: /2choi/post/index.php');die(); }
 	 echo $message; 
 	}
 	?>
+	<div id="login">
+		<div id="black"></div>
+		<div id="main">
+			<form action="" method="post">
+				<div id="id">ID</div>
+				<div id="idvar"><input type="text" name="username" placeholder="아이디를 입력하시오"></div>
+				<div id="pw">PW</div>
+				<div id="pwvar"><input type="password" name="password" placeholder="비밀번호를 입력하시오"></div>
 
-	<form action="" method="post">
-	<p><label>Username</label><input type="text" name="username" value=""  /></p>
-	<p><label>Password</label><input type="password" name="password" value=""  /></p>
-	<p><label></label><input type="submit" name="submit" value="Login"  /></p>
-	</form>
+				<input type="submit" value="로그인" name="submit">
+			</form>
+			<a href="./signup.php"><button value="signup" name="signup">회원가입</button></a>
+		</div>
+	</div>
+	<a href="./signup.php">회원가입</a>
 
-</div>
+			
+			
 </body>
 </html>
