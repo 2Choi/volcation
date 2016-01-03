@@ -28,31 +28,54 @@ if( $user->is_logged_in() ){
 <body>
 	<?php
 	//process login form if submitted
+	
 	if(isset($_POST['submit'])){
 
-		$username = trim($_POST['username']);
-		$password = trim($_POST['password']);
-		
-		if($user->login($username,$password)){ 
+		$_POST = array_map( 'stripslashes', $_POST );
 
-			//logged in return to index page
-			echo "
-				<script>
-				location.replace(\"../post/index.php\");
-				</script>";
-			exit;
+			//collect form data
+		extract($_POST);
+
+		if($username==null)
+		{
+			$message= "아이디를 적어주세요.";
+		}
+		if($password==null)
+		{
+			$message= "비밀번호를 적어주세요.";
+		}
+
+		if(!isset($message)){
 		
-		} else {
-			$message = '<p class="error">Wrong username or password</p>';
+			if($user->login($username,$password)){ 
+
+				//logged in return to index page
+				echo "
+					<script>
+					location.replace(\"../post/index.php\");
+					</script>";
+				exit;
+			
+			} else {
+				$message = '<p class="error">Wrong username or password</p>';
+			}
 		}
 
 	}//end if submit
 
-	if(isset($message)){
-	 echo $message; 
-	}
+	
 	?>
 	<div id="login">
+		<div class="error">
+			<h3>
+				<?php
+					if(isset($message))
+					{
+						echo $message;
+					}
+				?>
+			</h3>
+		</div>
 		<div id="black"></div>
 		<div id="main">
 			<form action="" method="post">

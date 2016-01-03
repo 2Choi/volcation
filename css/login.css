@@ -43,3 +43,14 @@ ex) #idvar #pwvar input{} 한줄로 하려는데 왜 적용이 안될까요?^^
 	text-align: center;
 	background-color: black;
 }
+.error
+{
+	z-index: 1000;
+	top:100px;
+	position: absolute;
+    display: inline-block;
+
+    -webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}

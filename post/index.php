@@ -3,10 +3,10 @@ require_once('../config/config.php');
 
 //check if already logged in
 if( !$user->is_logged_in() ){
-			echo "
-				<script>
-				location.replace(\"../user/login.php\");
-				</script>";
+	echo "
+	<script>
+	location.replace(\"../user/login.php\");
+	</script>";
 }?>
 <!DOCTYPE html>
 <html lang="ko-kr">
@@ -27,13 +27,13 @@ if( !$user->is_logged_in() ){
 			</ul>
 			<ul class="top-menu right">
 				<?php
-				    if( $user->is_logged_in() ) {
-				    	echo "<a href='index.php?logout=true'>";
-				    	echo "<li>로그아웃</li>";
-				    	echo "</a>";
-				    } else {
-				    	echo "<li>로그인</li>";
-				    }
+				if( $user->is_logged_in() ) {
+					echo "<a href='index.php?logout=true'>";
+					echo "<li>로그아웃</li>";
+					echo "</a>";
+				} else {
+					echo "<li>로그인</li>";
+				}
 				?>
 				<li>마일리지</li>
 			</ul>
@@ -78,9 +78,9 @@ if( !$user->is_logged_in() ){
 				if(!empty($_GET["logout"])) {
 					$user->logout();
 					echo "
-				<script>
-				location.replace(\"./index.php\");
-				</script>";
+					<script>
+					location.replace(\"./index.php\");
+					</script>";
 				}
 
 				if(!empty($_POST["submit"])) {
