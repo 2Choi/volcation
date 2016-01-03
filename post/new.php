@@ -1,8 +1,13 @@
-<?php require('../config/config.php'); ?>
-<!DOCTYPE html>
-<html lang="ko-kr">
-<head>
-	<meta charset="utf-8">
+<?php require('../config/config.php');
+//check if already logged in
+if( !$user->is_logged_in() ){
+	echo "
+	<script>
+	location.replace(\"../user/login.php\");
+	</script>";
+}
+	require("../layout/head.php");
+?>
 	<style>
 	.top {
 		display : inline;

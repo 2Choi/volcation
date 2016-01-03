@@ -1,8 +1,14 @@
-<?php require_once('../config/config.php'); ?>
-<!DOCTYPE html>
-<html lang="ko-kr">
-<head>
-	<meta charset="utf-8">
+<?php require_once('../config/config.php'); 
+
+//check if already logged in
+if( $user->is_logged_in() ){
+	echo "
+		<script>
+		location.replace(\"../post/index.php\");
+		</script>";
+}
+	require("../layout/head.php");
+?>
 	<style>
 	.join-os {
 		text-align: center;
@@ -13,8 +19,10 @@
 	}
 	</style>
 </head>
+
 <body>
 	<?php
+	require("../layout/header.php");
 
 	if(isset($_POST['submit'])){
 		$_POST = array_map( 'stripslashes', $_POST );
@@ -75,7 +83,7 @@
 
 	}
 	?>
-	<div>
+	<div style="margin-top:60px;">
 		<h3><?php
 		echo $message;
 		?></h3>

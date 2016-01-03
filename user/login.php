@@ -8,11 +8,8 @@ if( $user->is_logged_in() ){
 				location.replace(\"../post/index.php\");
 				</script>";
 }
+	require("../layout/head.php");
 ?>
-<!DOCTYPE html>
-<html lang="ko-kr">
-<head>
-	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../css/login.css">
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
