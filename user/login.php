@@ -36,6 +36,8 @@ if( $user->is_logged_in() ){
 			//collect form data
 		extract($_POST);
 
+
+
 		if($username==null)
 		{
 			$message= "아이디를 적어주세요.";

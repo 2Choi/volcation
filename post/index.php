@@ -68,8 +68,8 @@ if( !$user->is_logged_in() ){
 					echo "</td>";
 					echo "<td>".$row["Date"]."</td>";
 					echo "<td>";
-					echo "<form action=\"./index.php?id=".$row["PostNum"]."\" method=\"post\">
-					<input type=\"submit\" name=\"submit\" value=\"삭제\"></input>";
+					echo "<form action=\"./index.php?id=".$row["PostNum"]."\" method=\"post\">";
+					echo "<input type=\"submit\" name=\"submit\" value=\"삭제\"></input></form>";
 
 					echo "</td>";
 					echo "</tr>";

@@ -12,10 +12,6 @@
 <body>
 	<form action="./new.php" method="post">
 		<div class="top">
-			작성자
-			<input type="text" name="author">
-		</div>
-		<div class="top">
 			제목
 			<input type="text" name="title">
 		</div>
@@ -35,7 +31,7 @@
 		extract($_POST);
 
 		$sql = "INSERT INTO mainboard (author, title, date, content)
-		VALUES ('".$author."','".$title."','".date('Y-m-d H:i:s')."','".$content."');";
+		VALUES ('".$_SESSION['username']."','".$title."','".date('Y-m-d H:i:s')."','".$content."');";
 
 		$result = $conn->query($sql);
 

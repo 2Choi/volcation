@@ -43,6 +43,7 @@ class User extends Password{
 		if($password == $hashed){
 		    
 		    $_SESSION['loggedin'] = true;
+		    $_SESSION['username'] = $username;
 		    return true;
 		}		
 	}
