@@ -11,7 +11,9 @@ echo '<header>
 				echo "<li>로그아웃</li>";
 				echo "</a>";
 			} else {
+				echo "<a href='login.php'>";
 				echo "<li>로그인</li>";
+				echo "</a>";
 			}
 			echo '
 			<li>마일리지</li>

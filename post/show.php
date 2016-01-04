@@ -26,24 +26,16 @@
 	}
 	
 	</style>
-</head>
-<body>
-		<header>
-
-		<div class="container">
-			<ul class="top-menu">
-				<!-- <li></li> -->
-				<li>볼케이션</li>
-			</ul>
-			<ul class="top-menu right">
-				<li>로그인</li>
-				<li>로그아웃</li>
-				<li>마일리지</li>
-			</ul>
-		</div>
-	</header>
 	<?php
+	require("../layout/head.php");
+?>
+</head>
+	
+<body>
+	<?php
+			require("../layout/header.php");
 
+			
 	$sql="SELECT * FROM mainboard WHERE PostNum=".$_GET["id"].";";
 
 	$result = $conn->query($sql);
@@ -53,15 +45,15 @@
 		<section class="first">
 		<div class="content-top">
 			<div class="title">
-				<? echo $row["Title"]; ?>
+				<?php echo $row["Title"]; ?>
 			</div>
 			<div class="author">
 
-				<? echo $row["Author"]; ?>
+				<?php echo $row["Author"]; ?>
 			</div>
 			<div class="date">
 
-				<? echo $row["Date"]; ?>
+				<?php echo $row["Date"]; ?>
 			</div>
 		</div>
 		<div class="content-wrap">
@@ -103,7 +95,7 @@
 					extract($_POST);
 
 					$sql = "INSERT INTO mainboard (Author, Content, ReplyPost )
-					VALUES ('kkk','".$reply."','".$_GET["id"]."');";
+					VALUES ('".$_SESSION['username']."','".$reply."','".$_GET["id"]."');";
 					$result = $conn->query($sql);
 
 					echo "
