@@ -5,7 +5,7 @@ session_start();
 define('DBHOST','localhost');
 define('DBUSER','root');
 define('DBPASS','apmsetup');
-define('DBNAME','mainboard');
+define('DBNAME','volcation');
 
 try {
   $conn = new PDO("mysql:host=".DBHOST.";port=3306;dbname=".DBNAME, DBUSER, DBPASS);

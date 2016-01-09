@@ -54,7 +54,7 @@ if( $user->is_logged_in() ){
 
 		try{
 
-			$sql = "SELECT ID FROM membership WHERE ID='".$ID."'";
+			$sql = "SELECT username FROM users WHERE username='".$ID."'";
 			$result = $conn->query($sql);
 			if( $result -> rowCount() )
 			{
@@ -63,7 +63,7 @@ if( $user->is_logged_in() ){
 
 			if(!isset($message)){
 
-				$sql = "INSERT INTO membership (membername, ID, birthday, PW)
+				$sql = "INSERT INTO users (name, username, birthday, password)
 				VALUES ('".$_POST["membername"]."','".$_POST["ID"]."','".$_POST["birthday"]."','".$_POST["PW"]."');";
 
 				$result = $conn->query($sql);

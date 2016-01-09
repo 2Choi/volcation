@@ -29,7 +29,7 @@ if( !$user->is_logged_in() ){
 
 
 			//내림차순//
-				$sql = "SELECT PostNum, Title, Author, Date FROM mainboard ORDER BY PostNum DESC;";
+				$sql = "SELECT post_id, title, user_id, date FROM posts ORDER BY post_id DESC;";
 			//내림차순//
 
 
@@ -38,14 +38,14 @@ if( !$user->is_logged_in() ){
 				while($row = $result->fetch()) {
 
 					echo "<tr>";
-					echo "<td>".$row["PostNum"]."</td>";
-					echo "<td>".$row["Author"]."</td>";
+					echo "<td>".$row["post_id"]."</td>";
+					echo "<td>".$row["user_id"]."</td>";
 					echo "<td>";
-					echo "<a href=\"./show.php?id=".$row["PostNum"]."\">".$row["Title"]."</a>";
+					echo "<a href=\"./show.php?id=".$row["post_id"]."\">".$row["title"]."</a>";
 					echo "</td>";
-					echo "<td>".$row["Date"]."</td>";
+					echo "<td>".$row["date"]."</td>";
 					echo "<td>";
-					echo "<form action=\"./index.php?id=".$row["PostNum"]."\" method=\"post\">";
+					echo "<form action=\"./index.php?id=".$row["post_id"]."\" method=\"post\">";
 					echo "<input type=\"submit\" name=\"submit\" value=\"삭제\"></input></form>";
 
 					echo "</td>";
@@ -63,7 +63,7 @@ if( !$user->is_logged_in() ){
 				if(!empty($_POST["submit"])) {
 
 
-					$sql = "DELETE FROM mainboard WHERE PostNum=".$_GET["id"];
+					$sql = "DELETE FROM posts WHERE post_id=".$_GET["id"];
 					$result = $conn->query($sql);
 
 					echo "

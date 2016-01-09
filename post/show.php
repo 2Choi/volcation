@@ -36,7 +36,7 @@
 			require("../layout/header.php");
 
 			
-	$sql="SELECT * FROM mainboard WHERE PostNum=".$_GET["id"].";";
+	$sql="SELECT * FROM posts WHERE post_id=".$_GET["id"].";";
 
 	$result = $conn->query($sql);
 	$row = $result->fetch();
@@ -45,25 +45,25 @@
 		<section class="first">
 		<div class="content-top">
 			<div class="title">
-				<?php echo $row["Title"]; ?>
+				<?php echo $row["title"]; ?>
 			</div>
 			<div class="author">
 
-				<?php echo $row["Author"]; ?>
+				<?php echo $row["user_id"]; ?>
 			</div>
 			<div class="date">
 
-				<?php echo $row["Date"]; ?>
+				<?php echo $row["date"]; ?>
 			</div>
 		</div>
 		<div class="content-wrap">
 			<div class="content">
-				<pre style="overflow:auto;"><? echo $row["Content"]; ?></pre>
+				<pre style="overflow:auto;"><? echo $row["content"]; ?></pre>
 			</div>
 		</div>
 		<?php
 
-		$sql="SELECT * FROM mainboard WHERE ReplyPost=".$_GET["id"].";";
+		$sql="SELECT * FROM comments WHERE post_id=".$_GET["id"].";";
 
 		$result = $conn->query($sql);
 
@@ -71,10 +71,10 @@
 			?>
 			<div>
 				<div class="reply-top">
-					<? echo $row["Author"];?>
+					<? echo $row["user_id"];?>
 				</div>
 				<div class="reply-top">
-					<? echo $row["Content"];?>
+					<? echo $row["content"];?>
 				</div>
 			</div>
 			<?
@@ -94,8 +94,8 @@
 				//collect form data
 					extract($_POST);
 
-					$sql = "INSERT INTO mainboard (Author, Content, ReplyPost )
-					VALUES ('".$_SESSION['username']."','".$reply."','".$_GET["id"]."');";
+					$sql = "INSERT INTO comments (user_id, post_id, content, date)
+					VALUES ('".'1'."','".$_GET["id"]."','".$reply."',".date.");";
 					$result = $conn->query($sql);
 
 					echo "

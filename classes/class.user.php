@@ -22,11 +22,11 @@ class User extends Password{
 
 		try {
 
-			$stmt = $this->_db->prepare('SELECT PW FROM membership WHERE ID = :username');
+			$stmt = $this->_db->prepare('SELECT password FROM users WHERE username = :username');
 			$stmt->execute(array('username' => $username));
 			
 			$row = $stmt->fetch();
-			return $row['PW'];
+			return $row['password'];
 
 		} catch(PDOException $e) {
 		    echo '<p class="error">'.$e->getMessage().'</p>';

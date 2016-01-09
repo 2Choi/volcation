@@ -35,8 +35,8 @@ if( !$user->is_logged_in() ){
 		//collect form data
 		extract($_POST);
 
-		$sql = "INSERT INTO mainboard (author, title, date, content)
-		VALUES ('".$_SESSION['username']."','".$title."','".date('Y-m-d H:i:s')."','".$content."');";
+		$sql = "INSERT INTO posts (user_id, title, date, content)
+		VALUES ('".'1'."','".$title."','".date('Y-m-d H:i:s')."','".$content."');";
 
 		$result = $conn->query($sql);
 
