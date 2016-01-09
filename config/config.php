@@ -1,11 +1,13 @@
 <?php
+require_once("env.php");
 ob_start();
 session_start();
+
 //database credentials
-define('DBHOST','localhost');
-define('DBUSER','root');
-define('DBPASS','apmsetup');
-define('DBNAME','volcation');
+define('DBHOST',getenv('DBHOST'));
+define('DBUSER',getenv('DBUSER'));
+define('DBPASS',getenv('DBPASS'));
+define('DBNAME',getenv('DBNAME'));
 
 try {
   $conn = new PDO("mysql:host=".DBHOST.";port=3306;dbname=".DBNAME, DBUSER, DBPASS);
