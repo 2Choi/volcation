@@ -7,7 +7,16 @@ if( !$user->is_logged_in() ){
 	<script>
 	location.replace(\"../user/login.php\");
 	</script>";
-}?>
+}
+if(!empty($_GET["logout"])) {
+	$user->logout();
+	echo "
+	<script>
+	location.replace(\"./index.php\");
+	</script>";
+}
+
+?>
 <?php
 	require("../layout/head.php");
 ?>
@@ -27,10 +36,10 @@ if( !$user->is_logged_in() ){
 				</tr>
 				<?php
 
+			//내림차순//
+				$sql = "SELECT post_id, title, user_id, date FROM posts WHERE board_id=".$_GET["board_id"]." ORDER BY post_id DESC;";
+			//내림차순//
 
-			//내림차순//
-				$sql = "SELECT post_id, title, user_id, date FROM posts ORDER BY post_id DESC;";
-			//내림차순//
 
 
 				$result = $conn->query($sql);
@@ -52,13 +61,7 @@ if( !$user->is_logged_in() ){
 					echo "</tr>";
 				}
 
-				if(!empty($_GET["logout"])) {
-					$user->logout();
-					echo "
-					<script>
-					location.replace(\"./index.php\");
-					</script>";
-				}
+				
 
 				if(!empty($_POST["submit"])) {
 

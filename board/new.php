@@ -17,29 +17,8 @@ if( !$user->is_logged_in() ){
 <body>
 	<form action="./new.php" method="post">
 		<div class="top">
-			제목
-			<input type="text" name="title">
-		</div>
-		<div class="top">
 			게시판이름
-			<select name="board_id">
-				<?php
-
-				$sql = "SELECT board_id, boardname FROM boards";
-
-				$result = $conn->query($sql);
-
-				while($row = $result->fetch())
-				{
-					echo '<option value="'.$row["board_id"].'">'.$row["boardname"].'</option>';
-				}
-				?>
-  
-			</select>
-		</div>
-		<div>
-			<p>내용</p>
-			<textarea rows="20" cols="150" name="content"></textarea>
+			<input type="text" name="boardname">
 		</div>
 		<input type="submit" name="submit" value="작성완료"></input>
 	</form>
@@ -52,14 +31,14 @@ if( !$user->is_logged_in() ){
 		//collect form data
 		extract($_POST);
 
-		$sql = "INSERT INTO posts (user_id, title, date, content , board_id) VALUES ('".'1'."','".$title."','".date('Y-m-d H:i:s')."','".$content."','".$board_id."');";
+		$sql = "INSERT INTO boards (boardname) VALUES ('".$boardname."');";
 
 		$result = $conn->query($sql);
 
 		echo "
 		<script>
 		alert(\"작성이 완료되었습니다\");
-		location.replace(\"./index.php?board_id={$board_id}\");
+		location.replace(\"./index.php\");
 		</script>
 		";
 	}

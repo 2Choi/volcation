@@ -40,3 +40,10 @@ ALTER TABLE `posts` CHANGE `post_id` `post_id` INT( 11 ) NOT NULL AUTO_INCREMENT
 
 ALTER TABLE `comments` CHANGE `comment_id` `comment_id` INT( 11 ) NOT NULL AUTO_INCREMENT 
 
+CREATE TABLE `volcation`.`board` (
+ `board_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`boardname` VARCHAR( 20 ) NOT NULL 
+) ENGINE = MYISAM ;
+
+
+ALTER TABLE `posts` ADD `board_id` INT NOT NULL AFTER `post_id`
