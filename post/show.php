@@ -4,8 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../normalize.css" type="text/css">
-	<link rel="stylesheet" href="../css/page-1.css" type="text/css">
+	<link rel="stylesheet" href="/2choi/css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="/2choi/css/volcation.css" type="text/css">
 	<style>
 
 	.content-top{
@@ -35,8 +35,10 @@
 	<?php
 			require("../layout/header.php");
 
+			preg_match("/board\/(?<boardnum>[0-9]+)\/post\/(?<postnum>[0-9]+)$/", $_SERVER[REQUEST_URI], $match);
+
 			
-	$sql="SELECT * FROM posts WHERE post_id=".$_GET["id"].";";
+	$sql="SELECT * FROM posts WHERE post_id=".$match[postnum].";";
 
 	$result = $conn->query($sql);
 	$row = $result->fetch();
@@ -63,7 +65,7 @@
 		</div>
 		<?php
 
-		$sql="SELECT * FROM comments WHERE post_id=".$_GET["id"].";";
+		$sql="SELECT * FROM comments WHERE post_id=".$match[postnum].";";
 
 		$result = $conn->query($sql);
 

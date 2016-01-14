@@ -35,9 +35,12 @@ if(!empty($_GET["logout"])) {
 					<td>날짜</td>
 				</tr>
 				<?php
+				// $_SERVER[REQUEST_URI] 는 주소창에 입력된 주소
+				// preg_match는 두 번째 파라미터 중에 패턴에 맞는 것을 $match에 넣는다
+				preg_match("/board\/(?<boardnum>[0-9]+)$/", $_SERVER[REQUEST_URI], $match);
 
 			//내림차순//
-				$sql = "SELECT post_id, title, user_id, date FROM posts WHERE board_id=".$_GET["board_id"]." ORDER BY post_id DESC;";
+				$sql = "SELECT post_id, title, user_id, date FROM posts WHERE board_id=".$match[boardnum]." ORDER BY post_id DESC;";
 			//내림차순//
 
 
