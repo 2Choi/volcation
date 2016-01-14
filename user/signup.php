@@ -1,4 +1,4 @@
-<?php require_once('../config/config.php'); 
+<?php require_once('../config/config.php');
 
 //check if already logged in
 if( $user->is_logged_in() ){
@@ -83,34 +83,46 @@ if( $user->is_logged_in() ){
 
 	}
 	?>
+
 	<div style="margin-top:60px;">
 		<h3><?php
 		echo $message;
 		?></h3>
+	</div>
+
+	<div class="container">
 		<form action="#" method="post">
-			<div id="jointop">
-				<div class="join-os">
-					아이디
-					<input type="text" name="ID">
+				<div class="row">
+					<div class="six columns">
+						<label>아이디</label>
+						<input class="u-full-width" type="text" name="ID">
+					</div>
+					<div class="six columns">
+						<label>성명</label>
+						<input class="u-full-width" type="text" name="membername">
+					</div>
 				</div>
-				<div class="join-os">
-					성명
-					<input type="text" name="membername">
+				<div class="row">
+					<div class="six columns">
+						<label>생년월일</label>
+						<input class="u-full-width" type="text" name="birthday">
+					</div>
+					<div class="six columns">
+						<label>비밀번호</label>
+						<input class="u-full-width" type="password" name="PW">
+					</div>
 				</div>
-				<div class="join-os">
-					생년월일
-					<input type="text" name="birthday">
+				<div class="row">
+					<div class="six columns">
+						<label>비밀번호 확인</label>
+						<input class="u-full-width" type="password" name="PWC">
+					</div>
 				</div>
-				<div class="join-os">
-					비밀번호
-					<input type="text" name="PW">
+				<div class="row">
+					<div class="six columns offset-by-three">
+						<input class="button button-primary u-full-width" type="submit" name="submit" value="가입신청"></input>
+					</div>
 				</div>
-				<div class="join-os">
-					비밀번호 확인
-					<input type="text" name="PWC">
-				</div>
-			</div>
-			<input type="submit" name="submit" value="가입신청"></input>
 		</form>
 	</div>
 
