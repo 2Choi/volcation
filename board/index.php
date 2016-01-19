@@ -38,7 +38,7 @@ if( !$user->is_logged_in() ){
 					echo "<tr>";
 					echo "<td>".$row["board_id"]."</td>";
 					echo "<td>";
-					echo "<a href=\"../post/index.php?board_id=".$row["board_id"]."\">".$row["boardname"]."</a>";
+					echo "<a href=\"".$row["board_id"]."\">".$row["boardname"]."</a>";
 					echo "</td>";
 					echo "</tr>";
 				}

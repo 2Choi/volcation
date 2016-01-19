@@ -15,7 +15,7 @@ if( !$user->is_logged_in() ){
 	</style>
 </head>
 <body>
-	<form action="./new.php" method="post">
+	<form action="./new" method="post">
 		<div class="top">
 			제목
 			<input type="text" name="title">
@@ -59,7 +59,7 @@ if( !$user->is_logged_in() ){
 		echo "
 		<script>
 		alert(\"작성이 완료되었습니다\");
-		location.replace(\"./index.php?board_id={$board_id}\");
+		location.replace(\"/2choi/board/{$board_id}\");
 		</script>
 		";
 	}

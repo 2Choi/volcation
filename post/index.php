@@ -53,7 +53,7 @@ if(!empty($_GET["logout"])) {
 					echo "<td>".$row["post_id"]."</td>";
 					echo "<td>".$row["user_id"]."</td>";
 					echo "<td>";
-					echo '<a href="{$_SERVER[REQUEST_URI]}/post/{$row[post_id]}>{$row["title"]}</a>';
+					echo '<a href="'.$_SERVER[REQUEST_URI].'/post/'.$row[post_id].'">'.$row["title"].'</a>';
 					echo "</td>";
 					echo "<td>".$row["date"]."</td>";
 					echo "<td>";

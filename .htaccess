@@ -2,3 +2,4 @@ Options +FollowSymLinks
 RewriteEngine On
 RewriteRule ^(.*)board/([0-9]+)$ post/index.php [NC,L]
 RewriteRule ^(.*)board/([0-9]+)/post/([0-9]+)$ post/show.php [NC,L]
+RewriteRule ^(.*)post/new$ post/new.php [NC,L]

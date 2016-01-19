@@ -85,7 +85,9 @@
 
 
 		<div class="content">
-			<form action="./show.php?id=<?echo $_GET["id"];?>" method="post">
+			<?php
+			echo '<form action="'.$_SERVER[REQUEST_URI].'" method="post">'
+			?>
 				<textarea name="reply" class="content"></textarea>
 				<input type="submit" name="submit" value="작성"></input>
 				<?
@@ -97,13 +99,13 @@
 					extract($_POST);
 
 					$sql = "INSERT INTO comments (user_id, post_id, content, date)
-					VALUES ('".'1'."','".$_GET["id"]."','".$reply."',".date.");";
+					VALUES ('".'1'."','".$match[postnum]."','".$reply."',".date.");";
 					$result = $conn->query($sql);
 
 					echo "
 					<script>
 					alert(\"작성이 완료되었습니다\");
-					location.replace(\"./show.php?id=".$_GET["id"]."\");
+					location.replace(\"".$_SERVER[REQUEST_URI]."\");
 					</script>
 					";
 				}
