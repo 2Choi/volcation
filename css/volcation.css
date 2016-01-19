@@ -96,3 +96,12 @@ td
 .reply-top {
 	display: inline-block;
 }
+.write{
+	position: fixed;
+	right: 30%;
+	bottom: 5%;
+	
+}
+.write > img{
+	width: 100px;
+}
