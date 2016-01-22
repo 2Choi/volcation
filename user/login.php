@@ -51,7 +51,7 @@ if( $user->is_logged_in() ){
 				//logged in return to index page
 				echo "
 					<script>
-					location.replace(\"../post/index.php\");
+					location.replace(\"/2choi/board/index.php\");
 					</script>";
 				exit;
 			

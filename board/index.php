@@ -17,6 +17,11 @@ if( !$user->is_logged_in() ){
 		require("../layout/header.php");
 	?>
 	<section class="container first">
+		<a href="./new.php">
+			<div class="write">
+				<img src="../img/write.png">
+			</div>
+		</a>
 		<div id="bd-1">
 			<table id="bd-title">
 				<tr>

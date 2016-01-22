@@ -6,43 +6,55 @@ if( !$user->is_logged_in() ){
 	location.replace(\"../user/login.php\");
 	</script>";
 }
-	require("../layout/head.php");
+require("../layout/head.php");
 ?>
-	<style>
-	.top {
-		display : inline;
-	}
-	</style>
+<style>
+.top {
+	display : inline;
+}
+</style>
 </head>
 <body>
-	<form action="./new" method="post">
-		<div class="top">
-			제목
-			<input type="text" name="title">
-		</div>
-		<div class="top">
-			게시판이름
-			<select name="board_id">
-				<?php
+	<?php
+	require("../layout/header.php");
+	?>
+	<section class="container first">
 
-				$sql = "SELECT board_id, boardname FROM boards";
+		<form action="./new" method="post" class="u-full-width">
+			<div class="row">
+				<div class="top nine columns">
+					<div class="two columns">
+					<label>제목</label>
+				</div>
+				<div class="ten columns">
+					<input type="text" name="title" class="u-full-width">
+				</div>
+				</div>
+				<div class="top three columns">
+					게시판이름
+					<select name="board_id" class="u-full-width">
+						<?php
 
-				$result = $conn->query($sql);
+						$sql = "SELECT board_id, boardname FROM boards";
 
-				while($row = $result->fetch())
-				{
-					echo '<option value="'.$row["board_id"].'">'.$row["boardname"].'</option>';
-				}
-				?>
-  
-			</select>
-		</div>
-		<div>
-			<p>내용</p>
-			<textarea rows="20" cols="150" name="content"></textarea>
-		</div>
-		<input type="submit" name="submit" value="작성완료"></input>
-	</form>
+						$result = $conn->query($sql);
+
+						while($row = $result->fetch())
+						{
+							echo '<option value="'.$row["board_id"].'">'.$row["boardname"].'</option>';
+						}
+						?>
+
+					</select>
+				</div>
+			</div>
+			<div>
+				<p>내용</p>
+				<textarea rows="20" cols="150" name="content"></textarea>
+			</div>
+			<input type="submit" name="submit" value="작성완료"></input>
+		</form>
+	</section>
 	<?php
 
 	if(!empty($_POST["submit"])) {
