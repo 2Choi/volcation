@@ -29,6 +29,12 @@ CREATE TABLE `volcation`.`comments` (
 	PRIMARY KEY ( `comment_id` )
 ) ENGINE = MYISAM ;
 
+CREATE TABLE `volcation`.`boards` (
+	`board_id` INT NOT NULL ,
+	`boardname` VARCHAR( 20 ) NOT NULL,
+	PRIMARY KEY ( `board_id` )
+) ENGINE = MYISAM ;
+
 ALTER TABLE `users` ADD UNIQUE (
  `username`
 )
