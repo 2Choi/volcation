@@ -42,6 +42,12 @@ ALTER TABLE `users` ADD UNIQUE (
  `email`
 )
 
+ALTER TABLE `users` DROP `email`;
+
+ALTER TABLE `volcation`.`users` CHANGE `user_id` `user_id` INT( 11 ) NOT NULL AUTO_INCREMENT
+
+ALTER TABLE `volcation`.`boards` CHANGE `board_id` `board_id` INT( 11 ) NOT NULL AUTO_INCREMENT
+
 ALTER TABLE `volcation`.`posts` CHANGE `post_id` `post_id` INT( 11 ) NOT NULL AUTO_INCREMENT
 
 ALTER TABLE `volcation`.`comments` CHANGE `comment_id` `comment_id` INT( 11 ) NOT NULL AUTO_INCREMENT
