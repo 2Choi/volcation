@@ -47,3 +47,6 @@ CREATE TABLE `volcation`.`board` (
 
 
 ALTER TABLE `posts` ADD `board_id` INT NOT NULL AFTER `post_id`
+
+
+ALTER TABLE `users` ADD `mileage` INT NOT NULL
