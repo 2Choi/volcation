@@ -1,15 +1,14 @@
 <?php
 require_once('../config/config.php');
+	require("../layout/head.php");
 ?>
-<!DOCTYPE html>
-
-<html lang="ko-kr">
-<head>
-	<meta charset="utf-8">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="mileage.js"></script>
 </head>
+
 <body>
-<div id="bd-1">
+	<div class="container">
+		<div id="bd-1">
 			<table id="bd-title">
 				<tr>
 					<td>번호</td>
@@ -33,6 +32,14 @@ require_once('../config/config.php');
 			echo '<a href="">'.$row["mileage"].'</a>';
 			echo "</td>";
 			echo "<td>".$row["visit"]."</td>";
+			
+
+			echo "<td>";
+			/// 
+			echo '<div class="number-container">';
+    		echo '<input class="mileage" type="number" value="'.$row['mileage'].'"/>';
+			include("number.php");
+			echo "</td>";
 			echo "</tr>";
 		}
 	}
@@ -47,6 +54,7 @@ require_once('../config/config.php');
 	
 
 ?>
-</table>
+			</table>
 		</div>
+	</div>
 </body>

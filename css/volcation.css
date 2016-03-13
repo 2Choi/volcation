@@ -105,3 +105,21 @@ td
 .write > img{
 	width: 100px;
 }
+div.number-container{
+  	display: table;
+}
+div.number-control{
+	vertical-align: middle;
+text-align: center;
+display: inline-block;
+margin: 0 10px;
+}
+.number-control > button {
+width : 30px;
+}
+.mileage {
+	width: 100px;
+	font-size: 15px;
+	border-radius: 3px;
+	margin: 0 10px;
+}
