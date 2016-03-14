@@ -100,22 +100,30 @@ td
 	position: fixed;
 	right: 30%;
 	bottom: 5%;
-	
+
 }
 .write > img{
 	width: 100px;
 }
 div.number-container{
-  	display: table;
+  display: table;
+}
+.number-container > form {
+  margin:0;
 }
 div.number-control{
 	vertical-align: middle;
-text-align: center;
-display: inline-block;
-margin: 0 10px;
+  text-align: center;
+  display: inline-block;
+  margin: 0 10px;
 }
-.number-control > button {
-width : 30px;
+.number-control > button, .number-container input[type="submit"] {
+  width : 50px;
+  margin : 0;
+  padding: 0;
+}
+.number-control > p {
+  margin: 10px 0;
 }
 .mileage {
 	width: 100px;
