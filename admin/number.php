@@ -24,6 +24,7 @@
       <p>1000</p>
       <button type="button" class="minus">-</button>
     </div> <!-- 1000 -->
-    <input class="button button-primary" type="submit" name="submit" value="save"/>
- </form>
+
+    <input class="button button-small button-primary" type="submit" name="submit" value="저장"/>
+  </form>
 </div>
