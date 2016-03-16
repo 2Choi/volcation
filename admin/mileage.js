@@ -4,7 +4,7 @@ $(document).on("ready page:load" , function () {
     var tmp = parseInt( $(this).parent().attr('value') );
     if( $(this).hasClass('minus') ) { tmp *= -1; }
 
-    var input = $(this).parent().parent().find('input');
+    var input = $(this).parent().parent().find('input').first();
 
     var mileage = parseInt( input.val() )+tmp;
     mileage = mileage < 0 ? 0 : mileage;
