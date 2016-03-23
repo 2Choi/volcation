@@ -22,11 +22,11 @@ class User extends Password{
 
 		try {
 
-			$stmt = $this->_db->prepare('SELECT password FROM users WHERE username = :username');
+			$stmt = $this->_db->prepare('SELECT password, user_id FROM users WHERE username = :username');
 			$stmt->execute(array('username' => $username));
 			
 			$row = $stmt->fetch();
-			return $row['password'];
+			return $row;
 
 		} catch(PDOException $e) {
 		    echo '<p class="error">'.$e->getMessage().'</p>';
@@ -40,10 +40,11 @@ class User extends Password{
 		$hashed = $this->get_user_hash($username);
 		
 		//password는 입력값.//
-		if($password == $hashed){
+		if($password == $hashed['password']){
 		    
 		    $_SESSION['loggedin'] = true;
 		    $_SESSION['username'] = $username;
+		    $_SESSION['user_id'] = $hashed['user_id'];
 		    return true;
 		}		
 	}

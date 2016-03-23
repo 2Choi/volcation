@@ -3,7 +3,7 @@ require_once('../config/config.php');
 	require("../layout/head.php");
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script src="mileage.js"></script>
+  <script src="../javascript/mileage.js"></script>
 </head>
 
 <body>

@@ -5,6 +5,8 @@ echo '<header>
 			<!-- <li></li> -->
 			<li>볼케이션</li>
 		</ul>
+
+
 		<ul class="top-menu right">';
 			if( $user->is_logged_in() ) {
 				echo "<a href='index.php?logout=true'>";
@@ -16,6 +18,7 @@ echo '<header>
 				echo "</a>";
 			}
 			echo '
+			<a href="/2choi/gamble/index.php"><li>배팅</li></a>
 			<li>마일리지</li>
 		</ul>
 	</div>

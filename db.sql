@@ -65,3 +65,11 @@ ALTER TABLE `posts` ADD `board_id` INT NOT NULL AFTER `post_id`
 ALTER TABLE `users` ADD `mileage` INT NOT NULL
 
 ALTER TABLE `volcation`.`posts` ADD `board_id` INT NOT NULL AFTER `post_id`
+
+CREATE TABLE `volcation`.`gambles` (
+ `gamble_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`mileage` INT NOT NULL ,
+`user_id` INT NOT NULL ,
+`odd` INT NOT NULL ,
+`time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP 
+) ENGINE = MYISAM ;

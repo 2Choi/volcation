@@ -132,4 +132,14 @@ div.number-control{
 	border-radius: 3px;
 	margin: 0 10px;
 }
+.odd
+{
+	font-size: 20px;
+	display: inline-block;
+	margin: 10px 10px;	
 
+}
+.odd > p
+{
+	display: inline;
+}
