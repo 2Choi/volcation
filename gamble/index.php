@@ -37,16 +37,25 @@ require("../layout/head.php");
 		<div class="six columns">
 			<h3>남은 시간</h3>
 			<?php
-				$min = (int)date("i");
-				$sec = (int)date("s");
-				$min=$min%5;
-				$min-= 4;
-				$min*= -1;
-				$sec-= 60;
-				$sec*= -1;
+
+			$min = (int)date("i")-3;
+			$sec = (int)date("s");
+			echo "<h2>".$min.":".$sec."</h2>";
+			$sec = (int)date("s");
+			$min=$min%5;
+			$min-= 4;
+			$min*= -1;
+			$sec-=60;
+			$sec*= -1;
 
 
-				echo "<h2>".$min.":".$sec."</h2>";
+			if($min==4 && $sec==60)
+			{
+				$min=0;
+				$sec=0;
+			}
+			echo "<h2>".$min.":".$sec."</h2>";
+
 			?>
 			
 		</div>
@@ -108,14 +117,28 @@ require("../layout/head.php");
 		<div class="six columns">
 			<h3>배팅 금액</h3>
 			<h2>
-			<?php 
+				<?php 
 				$sql = "SELECT sum( mileage ) FROM gambles WHERE user_id=".$_SESSION['user_id'].";";
 				$result = $conn->query($sql);
 
 				$row = $result->fetch();
 
-				echo $row['sum( mileage )'];
-			?>
+
+				
+				if($min==0 && $sec==0)
+				{
+					$sql = "UPDATE gambles SET mileage=".(0)." WHERE user_id=".$_SESSION['user_id'].";";
+					$result = $conn->query($sql);
+
+					$row = $result->fetch();
+
+					echo $row['sum( mileage )'];
+				}
+				else
+				{
+					echo $row['sum( mileage )'];
+				}
+				?>
 			</h2>
 		</div>
 
