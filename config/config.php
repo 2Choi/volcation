@@ -1,5 +1,8 @@
 <?php
 require_once("env.php");
+
+ini_set( 'date.timezone', 'Asia/Seoul' );
+
 ob_start();
 session_start();
 

@@ -36,7 +36,14 @@ require("../layout/head.php");
 	<section class="container first">
 		<div class="six columns">
 			<h3>남은 시간</h3>
-			<h2>03:23</h2>
+			<?php
+				$min = (int)date("i");
+				$sec = (int)date("s");
+				$min=$min%5;
+
+				echo "<h2>".$min.":".$sec."</h2>";
+			?>
+			
 		</div>
 		<div class="six columns">
 			<h3>당첨 번호</h3>
