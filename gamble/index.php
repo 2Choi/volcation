@@ -40,6 +40,11 @@ require("../layout/head.php");
 				$min = (int)date("i");
 				$sec = (int)date("s");
 				$min=$min%5;
+				$min-= 4;
+				$min*= -1;
+				$sec-= 60;
+				$sec*= -1;
+
 
 				echo "<h2>".$min.":".$sec."</h2>";
 			?>
