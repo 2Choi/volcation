@@ -36,25 +36,30 @@ require("../layout/head.php");
 	<section class="container first">
 		<div class="six columns">
 			<h3>남은 시간</h3>
-			<?php
+			<h2 id="clock"></h2>
+			<script>
 
-			$min = (int)date("i");
-			$sec = (int)date("s");
-			echo "<h2>".$min.":".$sec."</h2>";
-			$min=$min%5;
-			$min-= 4;
-			$min*= -1;
-			$sec-=60;
-			$sec*= -1;
-
-			if($min==4 && $sec==60)
-			{
-				$min=0;
-				$sec=0;
+			var updateClock=function(){
+				$.ajax({
+		            url:'./batting.php?timer=true',
+		            success:function(data){
+		                $('#clock').text(data);
+		                if(data[0]=='0')
+		                {
+		                	$("#batting").hide();
+		                }
+		                else
+		                {
+		                	$("#batting").show();
+		                }
+		            }
+		        });
+				
+				setTimeout(updateClock, 1000);
 			}
-			echo "<h2>".$min.":".$sec."</h2>";
 
-			?>
+			updateClock();
+			</script>
 			
 		</div>
 		<div class="six columns">
@@ -107,7 +112,7 @@ require("../layout/head.php");
 						<button type="button" class="minus">-</button>
 					</div> <!-- 1000 -->
 
-					<input class="button button-small button-primary" type="submit" name="submit" value="저장"/>
+					<input id="batting" class="button button-small button-primary" type="submit" name="submit" value="저장"/>
 				</form>
 			</div>
 
