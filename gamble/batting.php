@@ -31,18 +31,38 @@ require_once('../config/config.php');
 
 			$user_mileage=$row["mileage"];
 
-			if($user_mileage>=$mileage)
+			$min = (int)date("i");
+            $sec = (int)date("s");
+            $min=$min%5;
+            $substract = date("Y-m-d H:i:s",strtotime(date("Y-m-d H:i:s")." -".$min." minutes -".$sec." seconds"));
+
+            $sql = "SELECT odd FROM gambles WHERE user_id=".$_SESSION['user_id'];
+			$sql = $sql." AND time BETWEEN '{$substract}' AND '".date("Y-m-d H:i:s")."'";
+			$result = $conn->query($sql);
+
+			$row = $result->fetch();
+			if(empty($row) || $row['odd']==$odd)
 			{
-				$sql = "INSERT INTO gambles (mileage, user_id, odd) VALUES ('".$mileage."','".$user_id."','".$odd."');";
-				$result = $conn->query($sql);
+				if($user_mileage>=$mileage)
+				{
+					$sql = "INSERT INTO gambles (mileage, user_id, odd) VALUES ('".$mileage."','".$user_id."','".$odd."');";
+					$result = $conn->query($sql);
 
-				$sql = "UPDATE users SET mileage=".($user_mileage-$mileage)." WHERE user_id=".$user_id.";";
-				$result = $conn->query($sql);
+					$sql = "UPDATE users SET mileage=".($user_mileage-$mileage)." WHERE user_id=".$user_id.";";
+					$result = $conn->query($sql);
+				}
+
+				unset($_POST);
+				$_POST = array();
 			}
-
-			unset($_POST);
-			$_POST = array();
-			
+			else
+			{
+				echo "
+				<script>
+				alert(\"동일하게 배팅해야 됩니다\");
+				</script>
+				";
+			}
 		}
 		echo "
 				<script>

@@ -30,7 +30,6 @@ require("../layout/head.php");
 
 	$user_mileage=$row["mileage"];
 
-	
 	?>
 
 	<section class="container first">
@@ -126,13 +125,18 @@ require("../layout/head.php");
                 $min=$min%5;
                 $substract = date("Y-m-d H:i:s",strtotime(date("Y-m-d H:i:s")." -".$min." minutes -".$sec." seconds"));
 
-                $sql = "SELECT sum( mileage ) FROM gambles WHERE user_id=".$_SESSION['user_id'];
+                $sql = "SELECT sum( mileage ),odd FROM gambles WHERE user_id=".$_SESSION['user_id'];
 				$sql = $sql." AND time BETWEEN '{$substract}' AND '".date("Y-m-d H:i:s")."'";
 				$result = $conn->query($sql);
 
 				$row = $result->fetch();
 
 				echo $row['sum( mileage )'] ? $row['sum( mileage )'] : 0;
+				echo '</h2><h2>';
+				if(!empty($row['odd']))
+				{
+					echo $row['odd'] ? '홀' : '짝';
+				}
 				?>
 			</h2>
 		</div>
