@@ -11,6 +11,8 @@ require_once('../config/config.php');
 		$min=(int)($time/60);
 		$sec=$time%60;
 
+		$sec= ($sec<10 ? '0' : '').$sec;
+
 		echo $min.":".$sec;
 	}
 	else if(!empty($_POST["submit"]))

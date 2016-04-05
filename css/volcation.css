@@ -143,3 +143,13 @@ div.number-control{
 {
 	display: inline;
 }
+.time-black
+{
+	width: 100%;
+    height: 100%;
+    position: fixed;
+    opacity: 0.8;
+    background-color: black;
+    color: white;
+    text-align: center;
+}

@@ -21,6 +21,12 @@ require("../layout/head.php");
 <script src="../javascript/mileage.js"></script>
 </head>
 <body>
+	<div class="time-black" style="display:none;">
+		<div class="six columns offset-by-three">
+			<h3>당첨 번호</h3>
+			<h2>123</h2>
+		</div>
+	</div>
 	<?php
 	require("../layout/header.php");
 
@@ -40,19 +46,28 @@ require("../layout/head.php");
 
 			var updateClock=function(){
 				$.ajax({
-		            url:'./batting.php?timer=true',
-		            success:function(data){
-		                $('#clock').text(data);
-		                if(data[0]=='0')
-		                {
-		                	$("#batting").hide();
-		                }
-		                else
-		                {
-		                	$("#batting").show();
-		                }
-		            }
-		        });
+					url:'./batting.php?timer=true',
+					success:function(data){
+						$('#clock').text(data);
+						if(data[0]=='0')
+						{
+							$("#batting").hide();
+						}
+						else
+						{
+							$("#batting").show();
+						}
+
+						if(data[0]=='0' && data[2]<='1')
+						{
+							$(".time-black").show();
+						}
+						else
+						{
+							$(".time-black").hide();
+						}
+					}
+				});
 				
 				setTimeout(updateClock, 1000);
 			}
@@ -121,11 +136,11 @@ require("../layout/head.php");
 			<h2>
 				<?php 
 				$min = (int)date("i");
-                $sec = (int)date("s");
-                $min=$min%5;
-                $substract = date("Y-m-d H:i:s",strtotime(date("Y-m-d H:i:s")." -".$min." minutes -".$sec." seconds"));
+				$sec = (int)date("s");
+				$min=$min%5;
+				$substract = date("Y-m-d H:i:s",strtotime(date("Y-m-d H:i:s")." -".$min." minutes -".$sec." seconds"));
 
-                $sql = "SELECT sum( mileage ),odd FROM gambles WHERE user_id=".$_SESSION['user_id'];
+				$sql = "SELECT sum( mileage ),odd FROM gambles WHERE user_id=".$_SESSION['user_id'];
 				$sql = $sql." AND time BETWEEN '{$substract}' AND '".date("Y-m-d H:i:s")."'";
 				$result = $conn->query($sql);
 
@@ -140,6 +155,7 @@ require("../layout/head.php");
 				?>
 			</h2>
 		</div>
+		
 
 		
 	</section>
