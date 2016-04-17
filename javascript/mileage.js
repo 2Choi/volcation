@@ -11,4 +11,15 @@ $(document).on("ready page:load" , function () {
     mileage = mileage < 0 ? 0 : mileage;
     input.val( mileage );
   });
+
+  $("#win-number").on( 'click', function(){
+
+  	$.ajax({
+		url:'/2choi/gamble/secret.php',
+		success:function(data){
+			console.log(data);
+			$("#win-number").text(data);
+		}
+	});
+  });
 });

@@ -24,7 +24,7 @@ require("../layout/head.php");
 	<div class="time-black" style="display:none;">
 		<div class="six columns offset-by-three">
 			<h3>당첨 번호</h3>
-			<h2>123</h2>
+			<button id="win-number" type="button" class="button">당첨번호 확인</button>
 		</div>
 	</div>
 	<?php
@@ -78,7 +78,7 @@ require("../layout/head.php");
 		</div>
 		<div class="six columns">
 			<h3>당첨 번호</h3>
-			<h2>123</h2>
+			
 		</div>
 	</section>
 	<section class="container">
