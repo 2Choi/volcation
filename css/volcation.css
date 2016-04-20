@@ -149,6 +149,7 @@ div.number-control{
     height: 100%;
     position: fixed;
     opacity: 0.8;
+    top:0;
     background-color: black;
     color: white;
     text-align: center;

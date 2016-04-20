@@ -21,12 +21,7 @@ require("../layout/head.php");
 <script src="../javascript/mileage.js"></script>
 </head>
 <body>
-	<div class="time-black" style="display:none;">
-		<div class="six columns offset-by-three">
-			<h3>당첨 번호</h3>
-			<button id="win-number" type="button" class="button">당첨번호 확인</button>
-		</div>
-	</div>
+	
 	<?php
 	require("../layout/header.php");
 
@@ -148,15 +143,26 @@ require("../layout/head.php");
 
 				echo $row['sum( mileage )'] ? $row['sum( mileage )'] : 0;
 				echo '</h2><h2>';
-				if(!empty($row['odd']))
-				{
-					echo $row['odd'] ? '홀' : '짝';
-				}
+				// if(!empty($row['odd']))
+				// {
+					if($row['sum( mileage )']!=0)
+					{
+						echo $row['odd'] ? '홀' : '짝';
+					}
+				// }
 				?>
 			</h2>
 		</div>
+
 		
 
 		
 	</section>
+	<div class="time-black" style="display:none;">
+		<div class="six columns offset-by-three">
+			<h3>당첨 번호</h3>
+			<button id="win-number" type="button" class="button">당첨번호 확인</button>
+		</div>
+	</div>
+
 </body>
