@@ -46,7 +46,7 @@ if(!empty($_GET["logout"])) {
 
 
 			//내림차순//
-				$sql = "SELECT post_id, title, user_id, date FROM posts WHERE board_id=".$match[boardnum]." ORDER BY post_id DESC LIMIT 10;";
+				$sql = "SELECT post_id, title, user_id, date FROM posts WHERE board_id=".$match['boardnum']." ORDER BY post_id DESC LIMIT 10;";
 
 			//내림차순//
 

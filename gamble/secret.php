@@ -53,34 +53,29 @@
 		$result = $conn->query($sql);
 		
 		echo $R;
-
 		$sql ="SELECT user_id FROM `gambles` WHERE";
 		$sql =$sql." time BETWEEN '{$substract}' AND '".date("Y-m-d H:i:s")."'";
 		$result = $conn->query($sql);
 
-		$row = $result->fetch();
+		while($row = $result->fetch()) {
 
-		foreach ($row as $i)
-		{
-
-						
-			$sql = "SELECT sum( mileage ),odd FROM gambles WHERE user_id=".$i["user_id"];
+			$sql = "SELECT sum( mileage ),odd FROM gambles WHERE user_id=".$row['user_id'];
 			$sql = $sql." AND time BETWEEN '{$substract}' AND '".date("Y-m-d H:i:s")."'";
-			$result = $conn->query($sql);
+			$result1 = $conn->query($sql);
 
-			$row = $result->fetch();
-			$mileage=$row["sum( mileage )"];
+			$gamble = $result1->fetch();
+			$mileage=$gamble["sum( mileage )"];
 
-			if($R%2==$row['odd'])
+			if($R%2==$gamble['odd'])
 			{
-				$sql = "SELECT mileage FROM users WHERE user_id=".$i['user_id'].";";
-				$result = $conn->query($sql);
-				$row = $result->fetch();
+				$sql = "SELECT mileage FROM users WHERE user_id=".$row['user_id'].";";
+				$result2 = $conn->query($sql);
+				$user = $result2->fetch();
 
-				$user_mileage=$row["mileage"];
+				$user_mileage=$user["mileage"];
 
-				$sql = "UPDATE users SET mileage=".($user_mileage+$mileage)." WHERE user_id=".$user_id.";";
-				$result = $conn->query($sql);
+				$sql = "UPDATE users SET mileage=".($user_mileage+$mileage*2)." WHERE user_id=".$row['user_id'].";";
+				$result3 = $conn->query($sql);
 			}
 
 		}
